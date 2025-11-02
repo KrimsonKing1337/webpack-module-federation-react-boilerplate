@@ -17,7 +17,6 @@ module.exports = (env = {}, argv) => {
     new ModuleFederationPlugin({
       name: 'host',
       remotes: {
-        // имя = то, что будешь использовать в импортах
         remote1: 'remote1@http://localhost:3001/remoteEntry.js',
         remote2: 'remote2@http://localhost:3002/remoteEntry.js',
       },
@@ -32,30 +31,6 @@ module.exports = (env = {}, argv) => {
           singleton: true,
           strictVersion: true,
           requiredVersion: deps['react-dom'],
-          eager: true,
-        },
-        'react-redux': {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: deps['react-redux'],
-          eager: true,
-        },
-        'redux': {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: deps['redux'],
-          eager: true,
-        },
-        'redux-saga': {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: deps['redux-saga'],
-          eager: true,
-        },
-        '@reduxjs/toolkit': {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: deps['@reduxjs/toolkit'],
           eager: true,
         },
       },
