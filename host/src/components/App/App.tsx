@@ -19,17 +19,13 @@ export const App = () => {
         <Counter />
       </RemoteWrapper>
 
-      <RemoteWrapper>
-        <Suspense fallback="Loading...">
-          <Remote1Root />
-        </Suspense>
-      </RemoteWrapper>
+      <Suspense fallback="Loading...">
+        <Remote1Root />
+      </Suspense>
 
-      <RemoteWrapper>
-        <Suspense fallback="Loading...">
-          <Remote2Root />
-        </Suspense>
-      </RemoteWrapper>
+      <Suspense fallback="Loading...">
+        <Remote2Root />
+      </Suspense>
     </div>
   );
 };
