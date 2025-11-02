@@ -34,7 +34,30 @@ module.exports = (env = {}, argv) => {
           requiredVersion: deps['react-dom'],
           eager: true,
         },
-        // при необходимости: "react-redux": { singleton: true, requiredVersion: deps["react-redux"] }
+        'react-redux': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: deps['react-redux'],
+          eager: true,
+        },
+        'redux': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: deps['redux'],
+          eager: true,
+        },
+        'redux-saga': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: deps['redux-saga'],
+          eager: true,
+        },
+        '@reduxjs/toolkit': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: deps['@reduxjs/toolkit'],
+          eager: true,
+        },
       },
     }),
 
