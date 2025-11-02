@@ -1,9 +1,11 @@
 import type { PropsWithChildren } from 'react';
 
-export default ({ children }: PropsWithChildren) => {
+export const Button = ({ children }: PropsWithChildren) => {
   return (
     <button>
       {children}
     </button>
   );
 };
+
+export default Button;

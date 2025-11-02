@@ -1,10 +1,6 @@
 import { lazy, Suspense } from 'react';
 
-import * as Remote from 'remote1/Button';
-
-const RemoteButton = Remote.default;
-
-const RemoteButtonLazy = lazy(() => import('remote1/Button'));
+const RemoteButton = lazy(() => import('remote1/Button'));
 
 import { Wrapper, Counter } from 'components';
 
@@ -33,14 +29,10 @@ export const App = () => {
 
       <Wrapper>
         <Suspense fallback="Загрузка…">
-          <RemoteButtonLazy>
-            Remote Button Lazy
-          </RemoteButtonLazy>
+          <RemoteButton>
+            Remote Button
+          </RemoteButton>
         </Suspense>
-
-        <RemoteButton>
-          Remote Button
-        </RemoteButton>
       </Wrapper>
 
       <Wrapper>
