@@ -9,3 +9,5 @@ export const Wrapper = ({ children }: PropsWithChildren) => {
     </div>
   );
 };
+
+export default Wrapper;

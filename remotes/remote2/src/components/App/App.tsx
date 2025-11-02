@@ -19,7 +19,7 @@ export const App = () => {
     <div>
       <Wrapper>
         <h4>
-          First remote
+          Second remote
         </h4>
       </Wrapper>
 

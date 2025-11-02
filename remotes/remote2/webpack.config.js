@@ -15,10 +15,10 @@ module.exports = (env = {}, argv) => {
 
   const plugins = [
     new ModuleFederationPlugin({
-      name: 'remote1',
+      name: 'remote2',
       filename: 'remoteEntry.js',
       exposes: {
-        './Button': './src/components/Button/Button.tsx'
+        './Wrapper': './src/components/Wrapper/Wrapper.tsx'
       },
       shared: {
         react: {
