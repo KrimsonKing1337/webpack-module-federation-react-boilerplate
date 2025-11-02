@@ -4,15 +4,9 @@ export const App = () => {
   return (
     <div>
       <Wrapper>
-        <h4>
+        <h2>
           Second remote
-        </h4>
-      </Wrapper>
-
-      <Wrapper>
-        <h1>
-          Counter
-        </h1>
+        </h2>
 
         <Counter />
       </Wrapper>
