@@ -14,8 +14,22 @@ export const Counter = () => {
   const count = useSelector(counterSelectors.count);
 
   useEffect(() => {
-    bus.emit('counter:change', count);
-  }, [count]);
+    const handlerDecrement = () => {
+      dispatch(counterActions.decrement());
+    };
+
+    const handlerIncrement = () => {
+      dispatch(counterActions.increment());
+    };
+
+    bus.on('counter:decrement', handlerDecrement);
+    bus.on('counter:increment', handlerIncrement);
+
+    return () => {
+      bus.off('counter:decrement', handlerDecrement);
+      bus.off('counter:increment', handlerIncrement);
+    };
+  }, []);
 
   const minusClickHandler = () => {
     dispatch(counterActions.decrement());

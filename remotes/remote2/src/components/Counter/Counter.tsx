@@ -14,16 +14,20 @@ export const Counter = () => {
   const count = useSelector(counterSelectors.count);
 
   useEffect(() => {
-    const handler = (count: number) => {
-      console.log(count);
-
-      // dispatch(counterActions.setCount(count));
+    const handlerDecrement = () => {
+      dispatch(counterActions.decrement());
     };
 
-    bus.on('counter:change', handler);
+    const handlerIncrement = () => {
+      dispatch(counterActions.increment());
+    };
+
+    bus.on('counter:decrement', handlerDecrement);
+    bus.on('counter:increment', handlerIncrement);
 
     return () => {
-      bus.off('counter:change', handler);
+      bus.off('counter:decrement', handlerDecrement);
+      bus.off('counter:increment', handlerIncrement);
     };
   }, []);
 

@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import { bus } from 'eventBus';
+
 import { counterSelectors, counterActions } from 'store/counter';
 
 import styles from './Counter.scss';
@@ -11,10 +13,14 @@ export const Counter = () => {
 
   const minusClickHandler = () => {
     dispatch(counterActions.decrement());
+
+    bus.emit('counter:decrement');
   };
 
   const plusClickHandler = () => {
     dispatch(counterActions.increment());
+
+    bus.emit('counter:increment');
   };
 
   return (
