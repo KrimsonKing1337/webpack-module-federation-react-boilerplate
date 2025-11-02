@@ -12,3 +12,5 @@ declare module 'remote1/Button' {
 }
 
 declare module 'remote2/Wrapper';
+declare module 'remote1/Root';
+declare module 'remote2/Root';

@@ -5,4 +5,5 @@ declare module '*.scss' {
   export default content;
 }
 
+declare module 'host/eventBus';
 declare module 'remote2/Wrapper';

@@ -18,10 +18,12 @@ module.exports = (env = {}, argv) => {
       name: 'remote1',
       filename: 'remoteEntry.js',
       remotes: {
+        host: 'host@http://localhost:3000/remoteEntry.js',
         remote2: 'remote2@http://localhost:3002/remoteEntry.js',
       },
       exposes: {
-        './Button': './src/components/Button/Button.tsx'
+        './Button': './src/components/Button/Button.tsx',
+        './Root': './src/components/Root/Root.tsx',
       },
       shared: {
         react: {

@@ -17,8 +17,12 @@ module.exports = (env = {}, argv) => {
     new ModuleFederationPlugin({
       name: 'remote2',
       filename: 'remoteEntry.js',
+      remotes: {
+        host: 'host@http://localhost:3000/remoteEntry.js',
+      },
       exposes: {
-        './Wrapper': './src/components/Wrapper/Wrapper.tsx'
+        './Wrapper': './src/components/Wrapper/Wrapper.tsx',
+        './Root': './src/components/Root/Root.tsx'
       },
       shared: {
         react: {

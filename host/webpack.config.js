@@ -20,6 +20,9 @@ module.exports = (env = {}, argv) => {
         remote1: 'remote1@http://localhost:3001/remoteEntry.js',
         remote2: 'remote2@http://localhost:3002/remoteEntry.js',
       },
+      exposes: {
+        './eventBus': './src/eventBus.tsx',
+      },
       shared: {
         react: {
           singleton: true,
