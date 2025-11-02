@@ -17,6 +17,9 @@ module.exports = (env = {}, argv) => {
     new ModuleFederationPlugin({
       name: 'remote1',
       filename: 'remoteEntry.js',
+      remotes: {
+        remote2: 'remote2@http://localhost:3002/remoteEntry.js',
+      },
       exposes: {
         './Button': './src/components/Button/Button.tsx'
       },

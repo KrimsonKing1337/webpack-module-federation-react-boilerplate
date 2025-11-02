@@ -10,3 +10,5 @@ declare module 'remote1/Button' {
   const Button: React.ComponentType<React.ComponentProps<'button'>>;
   export default Button;
 }
+
+declare module 'remote2/Wrapper';

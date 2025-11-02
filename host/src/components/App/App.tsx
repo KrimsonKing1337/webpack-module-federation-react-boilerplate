@@ -1,8 +1,9 @@
 import { lazy, Suspense } from 'react';
 
 const RemoteButton = lazy(() => import('remote1/Button'));
+const RemoteWrapper = lazy(() => import('remote2/Wrapper'));
 
-import { Wrapper, Counter } from 'components';
+import { Counter } from 'components';
 
 import { pokemonApi, jsonPlaceholderApi } from 'api';
 
@@ -21,35 +22,35 @@ export const App = () => {
 
   return (
     <div>
-      <Wrapper>
+      <RemoteWrapper>
         <h4>
           Host
         </h4>
-      </Wrapper>
+      </RemoteWrapper>
 
-      <Wrapper>
+      <RemoteWrapper>
         <Suspense fallback="Загрузка…">
           <RemoteButton>
             Remote Button
           </RemoteButton>
         </Suspense>
-      </Wrapper>
+      </RemoteWrapper>
 
-      <Wrapper>
+      <RemoteWrapper>
         <h1>
           Counter
         </h1>
 
         <Counter />
-      </Wrapper>
+      </RemoteWrapper>
 
-      <Wrapper>
+      <RemoteWrapper>
         <h4>
           Example of using RTK query (see sources)
         </h4>
-      </Wrapper>
+      </RemoteWrapper>
 
-      <Wrapper>
+      <RemoteWrapper>
         {pokemonIsLoading && (
           <div>
             Pokemon is loading...
@@ -67,15 +68,15 @@ export const App = () => {
             Pokemon: {pokemonData.name}
           </h3>
         )}
-      </Wrapper>
+      </RemoteWrapper>
 
-      <Wrapper>
+      <RemoteWrapper>
         <h4>
           Another one example of using RTK query (see sources)
         </h4>
-      </Wrapper>
+      </RemoteWrapper>
 
-      <Wrapper>
+      <RemoteWrapper>
         {jsonPlaceholderIsLoading && (
           <div>
             Json placeholder is loading...
@@ -93,7 +94,7 @@ export const App = () => {
             {jsonPlaceholderData.title}
           </h3>
         )}
-      </Wrapper>
+      </RemoteWrapper>
     </div>
   );
 };
