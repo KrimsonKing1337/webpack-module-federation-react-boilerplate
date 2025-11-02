@@ -6,11 +6,15 @@ export type Events = {
   'counter:change': number;
 };
 
-type Bus = import('mitt').Emitter<Events>;
-const g = globalThis as any;
-
-if (!g.__MF_BUS__) {
-  g.__MF_BUS__ = mitt<Events>();
+type GlobalThis = {
+  mittInstance?: import('mitt').Emitter<any>;
 }
 
-export const bus: Bus = g.__MF_BUS__;
+type Bus = import('mitt').Emitter<Events>;
+const g = globalThis as GlobalThis;
+
+if (!g.mittInstance) {
+  g.mittInstance = mitt<Events>();
+}
+
+export const bus: Bus = g.mittInstance;
