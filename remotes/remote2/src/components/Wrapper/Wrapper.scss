@@ -1,0 +1,13 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px #999 solid;
+  border-radius: 4px;
+  max-width: 500px;
+  padding: 5px;
+  margin-top: 10px;
+
+  &:nth-of-type(1) {
+    margin-top: 0;
+  }
+}
