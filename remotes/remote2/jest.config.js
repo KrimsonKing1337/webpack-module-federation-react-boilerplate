@@ -1,3 +1,5 @@
+import packageJson from './package.json' with { type: 'json' };
+
 export default {
   coverageDirectory: '<rootDir>/coverage',
   rootDir: './',
@@ -6,7 +8,7 @@ export default {
 
   globals: {
     __IS_SERVER__: false,
-    __NAME__: require('./package.json').name,
+    __NAME__: packageJson.name,
   },
 
   moduleDirectories: ['node_modules', 'src'],
