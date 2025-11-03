@@ -19,10 +19,25 @@ const middlewares = [
   jsonPlaceholderApi.middleware,
 ];
 
-export const store = configureStore({
+const storeInit = configureStore({
   reducer,
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middlewares),
 });
+
+type GlobalThis = {
+  hostStore?: typeof storeInit;
+}
+
+const g = globalThis as GlobalThis;
+
+// создаём один раз
+if (!g.hostStore) {
+  g.hostStore = storeInit;
+}
+
+const store = g.hostStore;
+
+export { store };
 
 sagaMiddleware.run(watchCounterActions);
 

@@ -6,4 +6,5 @@ declare module '*.scss' {
 }
 
 declare module 'host/eventBus';
+declare module 'host/storeApi';
 declare module 'remote2/Wrapper';
