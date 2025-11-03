@@ -7,7 +7,7 @@ export type Events = {
 };
 
 type GlobalThis = {
-  mittInstance?: import('mitt').Emitter<any>;
+  mittInstance?: import('mitt').Emitter<Events>;
 }
 
 type Bus = import('mitt').Emitter<Events>;
