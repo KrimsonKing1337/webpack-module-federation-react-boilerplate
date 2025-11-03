@@ -25,7 +25,7 @@ const compat = new FlatCompat({
 
 const ignores = [
   '**/*.js',
-  'eslint.config.mjs',
+  'eslint.config.js',
 ];
 
 const globIgnores = globalIgnores(ignores);
@@ -58,26 +58,32 @@ export default defineConfig([globIgnores, {
     react: {
       version: 'detect',
     },
+    'import/internal-regex': '^(assets|api|store|hooks|components|utils)(/.*)?$',
   },
 
   rules: {
     'import/order': ['error', {
       'newlines-between': 'always-and-inside-groups',
-      groups: [['builtin', 'external'], 'internal', ['parent', 'sibling', 'index']],
-
-      pathGroups: [
-        {
-          pattern: '{api,app,assets,common,hooks,store,styles,types,utils}{**,**/**}',
-          group: 'internal',
-        },
-        {
-          pattern: 'react',
-          group: 'external',
-          position: 'before',
-        },
+      groups: [
+        'builtin',
+        'external',
+        'internal',
+        ['parent', 'sibling', 'index'],
       ],
 
-      pathGroupsExcludedImportTypes: [],
+      pathGroups: [
+        { pattern: 'react', group: 'external', position: 'before' },
+        { pattern: 'react-redux', group: 'external', position: 'after' },
+
+        { pattern: 'assets', group: 'internal', position: 'before' },
+        { pattern: 'api', group: 'internal', position: 'after' },
+        { pattern: 'store', group: 'internal', position: 'after' },
+        { pattern: 'hooks', group: 'internal', position: 'after' },
+        { pattern: 'components', group: 'internal', position: 'after' },
+        { pattern: 'utils', group: 'internal', position: 'after' },
+      ],
+
+      pathGroupsExcludedImportTypes: ['builtin'],
     }],
 
     'eol-last': ['error', 'always'],

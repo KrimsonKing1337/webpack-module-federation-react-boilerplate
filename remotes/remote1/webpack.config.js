@@ -1,14 +1,22 @@
-const { ModuleFederationPlugin } = require('webpack').container;
-const { DefinePlugin } = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+import webpack from 'webpack';
+const { DefinePlugin } = webpack;
+const { ModuleFederationPlugin } = webpack.container;
 
-const path = require('path');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 
-const deps = require('./package.json').dependencies;
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-module.exports = (env = {}, argv) => {
+import packageJson from './package.json' with { type: 'json' };
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const deps = packageJson.dependencies;
+
+export default (env = {}, argv) => {
   const webpackMode = argv.mode;
 
   const isProd = webpackMode === 'production';
