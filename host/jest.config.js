@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   coverageDirectory: '<rootDir>/coverage',
   rootDir: './',
   verbose: true,
